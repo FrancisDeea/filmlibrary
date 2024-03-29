@@ -5,9 +5,9 @@ import { getMovies } from "@/lib/data";
 export default async function Home({
   searchParams
 }: {
-  searchParams: { page: number };
+  searchParams: { page: string };
 }) {
-  const page = Number(searchParams.page) || 1
+  const page = searchParams.page || "1"
   const data = await getMovies(null, page);
   // const ITEMS_PER_PAGE = 20;
   const totalPages = 500

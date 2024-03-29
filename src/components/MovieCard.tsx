@@ -25,6 +25,7 @@ export default function MovieCard(props: Movie) {
         src={poster_path}
         alt={`poster of ${title} movie`}
         className="object-cover object-center bg-gradient-to-t bg-black"
+        loading="lazy"
       />
       <div className="absolute z-10 bottom-2 left-2 flex flex-col gap-1">
         <div className="flex gap-2 text-sm">

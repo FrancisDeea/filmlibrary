@@ -1,8 +1,7 @@
 import "server-only";
 import { getCategoriesResponse, getMoviesResponse } from "./definitions";
 
-const urlBase =
-  "https://advanced-movie-search.p.rapidapi.com/discover/movie?page=";
+const urlBase = "https://advanced-movie-search.p.rapidapi.com/discover/movie";
 const urlCategories =
   "https://advanced-movie-search.p.rapidapi.com/genre/movie/list";
 const options = {
@@ -16,10 +15,13 @@ const options = {
 
 export async function getMovies(
   genre: string | null = null,
-  page: number = 12
+  page: string | undefined = "1"
 ): Promise<getMoviesResponse> {
-  const genreParam = genre ? `&with_genres=${genre}` : null;
-  const api = urlBase + page + genreParam;
+  let api;
+  genre
+    ? (api = urlBase + `?with_genres=${genre}` + `&page=${page}`)
+    : (api = urlBase + `?page=${page}`);
+  console.log(api)
   try {
     const response = await fetch(api, options);
     if (!response.ok) {

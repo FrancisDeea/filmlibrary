@@ -4,11 +4,12 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { generatePagination } from "@/lib/utils";
 
-export default function Pagination({ totalPages }: { totalPages: number }) {
+export default function Pagination({ totalPages, category }: { totalPages: number, category?: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
   const allPages = generatePagination(currentPage, totalPages);
+  const categoryPath = `/${category}` || ""
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);

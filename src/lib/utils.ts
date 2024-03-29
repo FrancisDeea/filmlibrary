@@ -1,4 +1,4 @@
-import { Categories } from "./definitions";
+import type { Categories } from "./definitions";
 
 export const generatePagination = (currentPage: number, totalPages: number) => {
   // If the total number of pages is 7 or less,
@@ -58,11 +58,20 @@ export const categoryDictionary: Categories = {
   36: "History",
   27: "Horror",
   10402: "Music",
-  9648: "Mistery",
+  9648: "Mystery",
   10749: "Romance",
   878: "Science Fiction",
   10770: "TV Movie",
   53: "Thriller",
   10752: "War",
   37: "Western",
+};
+
+export const findIdByCategory = (category: string): string | undefined => {
+  const categoryCapitalized = category[0].toUpperCase() + category.slice(1);
+
+  const result = Object.keys(categoryDictionary).find(
+    (key) => categoryDictionary[Number(key)] === categoryCapitalized
+  );
+  return result;
 };
