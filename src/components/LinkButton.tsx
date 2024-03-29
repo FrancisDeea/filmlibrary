@@ -1,4 +1,4 @@
-import type { LinkButton } from "@/utils/definitions";
+import type { LinkButton } from "@/lib/definitions";
 import Link from "next/link";
 
 export default function LinkButton({ link, value }: LinkButton) {

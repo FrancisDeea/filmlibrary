@@ -14,7 +14,7 @@ export default function DashboardLayout({
         <aside className="w-60 border-r-2 border-r-gray-700">
           <SideNav />
         </aside>
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 h-[calc(100%-48px)]">{children}</main>
       </div>
     </div>
   );

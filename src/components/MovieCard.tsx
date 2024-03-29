@@ -1,17 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 
-import type { Movie, MovieCard } from "@/utils/definitions";
+import type { Movie, MovieCard } from "@/lib/definitions";
+import { categoryDictionary } from "@/lib/utils";
 
 export default function MovieCard(props: Movie) {
   const {
     title,
     release_date: year,
-    genre_ids: genres,
+    genre_ids,
     poster_path,
     vote_average: rating,
   } = props;
   const formattedYear = year.slice(0, 4);
   const formattedRating = rating.toFixed(1);
+  const genres = genre_ids.slice(0, 2);
 
   return (
     <article className="aspect-auto w-60 rounded-lg overflow-hidden relative grow cursor-pointer transition-all hover:scale-105 hover:saturate-150">
@@ -24,11 +26,17 @@ export default function MovieCard(props: Movie) {
         alt={`poster of ${title} movie`}
         className="object-cover object-center bg-gradient-to-t bg-black"
       />
-      <div className="absolute z-10 bottom-2 left-2">
+      <div className="absolute z-10 bottom-2 left-2 flex flex-col gap-1">
+        <div className="flex gap-2 text-sm">
+          {genres.map((genre) => (
+            <span key={genre} className="bg-red-600 px-2 rounded-xl">
+              {categoryDictionary[genre]}
+            </span>
+          ))}
+        </div>
         <span className="text-2xl font-semibold">{title}</span>
         <div className="flex flex-row gap-2">
           <span>{formattedYear}</span>
-          <span>{genres}</span>
         </div>
       </div>
     </article>
