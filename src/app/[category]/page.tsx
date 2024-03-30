@@ -14,7 +14,7 @@ export default async function CategoryPage({
   console.log(id);
   console.log(searchParams);
   const data = await getMovies(id, searchParams.page);
-  const totalPages = 20;
+  const totalPages = 200;
   return (
     <>
       <div className="overflow-scroll h-full flex flex-wrap justify-between gap-5 p-4 pb-12">

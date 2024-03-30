@@ -47,4 +47,6 @@ export interface Genre {
   name: string
 }
 
+export type IconDictionary = Record<string, JSX.Element>
+
   
