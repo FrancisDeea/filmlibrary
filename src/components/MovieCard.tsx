@@ -4,6 +4,7 @@ import type { Movie, MovieCard } from "@/lib/definitions";
 import { categoryDictionary } from "@/lib/utils";
 
 export default function MovieCard(props: Movie) {
+  const basePathImages = "https://image.tmdb.org/t/p/w342";
   const {
     title,
     release_date: year,
@@ -22,7 +23,7 @@ export default function MovieCard(props: Movie) {
         {formattedRating}
       </div>
       <img
-        src={poster_path}
+        src={`${basePathImages}${poster_path}`}
         alt={`poster of ${title} movie`}
         className="object-cover object-center bg-gradient-to-t bg-black"
         loading="lazy"

@@ -3,14 +3,14 @@ import Pagination from "@/components/Pagination";
 import { getMovies } from "@/lib/data";
 
 export default async function Home({
-  searchParams
+  searchParams,
 }: {
   searchParams: { page: string };
 }) {
-  const page = searchParams.page || "1"
+  const page = searchParams.page || "1";
   const data = await getMovies(null, page);
   // const ITEMS_PER_PAGE = 20;
-  const totalPages = 500
+  const totalPages = 500;
   return (
     <>
       <div className="overflow-scroll h-full flex flex-wrap justify-between gap-5 p-4 pb-12">
