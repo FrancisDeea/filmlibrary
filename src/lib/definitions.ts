@@ -9,6 +9,7 @@ export interface getMoviesResponse {
     results: Movie[]
     total_pages: number
     total_results: number
+    genre?: string
   }
   
   export interface Movie {
