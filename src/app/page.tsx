@@ -13,7 +13,7 @@ export default async function Home({
   const totalPages = 500;
   return (
     <>
-      <div className="overflow-scroll h-full flex flex-wrap justify-between gap-5 p-4 pb-12">
+      <div className="overflow-scroll h-full flex flex-wrap justify-center items-center gap-5 p-4 pb-12">
         {data.results.map((movie) => {
           return <MovieCard key={movie.id} {...movie} />;
         })}

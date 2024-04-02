@@ -33,7 +33,6 @@ export default function Pagination({ totalPages, category }: { totalPages: numbe
             if (index === 0) position = "first";
             if (index === allPages.length - 1) position = "last";
             if (allPages.length === 1) position = "single";
-            if (page === "...") position = "middle";
 
             return (
               <PaginationNumber
@@ -72,8 +71,7 @@ function PaginationNumber({
     ${position === "first" || position === "single" ? "rounded-l-md" : null}
     ${position === "last" || position === "single" ? "rounded-r-md" : null}
     ${isActive ? "z-10 bg-blue-600 border-blue-600 text-white" : null}
-    ${!isActive && position !== "middle" ? "hover:bg-gray-100" : null}
-    ${position === "middle" ? "text-gray-300" : null}`;
+    ${!isActive && position !== "middle" ? "hover:bg-gray-100" : null}`
 
   return isActive || position === "middle" ? (
     <div className={className}>{page}</div>

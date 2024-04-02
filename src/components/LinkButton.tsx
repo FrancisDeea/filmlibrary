@@ -5,7 +5,7 @@ export default function LinkButton({ link, value }: LinkButton) {
   return (
     <Link
       href={link}
-      className="bg-gray-800 p-2 rounded-md font-semibold hover:bg-gray-700"
+      className="bg-gray-800 p-2 rounded-md font-semibold hover:bg-gray-700 max-sm:bg-transparent"
     >
       {value}
     </Link>

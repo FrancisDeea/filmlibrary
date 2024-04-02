@@ -17,7 +17,7 @@ export default function MovieCard(props: Movie) {
   const genres = genre_ids.slice(0, 2);
 
   return (
-    <article className="aspect-auto w-60 rounded-lg overflow-hidden relative grow cursor-pointer transition-all hover:scale-105 hover:saturate-150">
+    <article className="bg-pink-400 w-full max-w-64 max-sm:max-w-max rounded-lg overflow-hidden relative cursor-pointer transition-all hover:scale-105 hover:saturate-150">
       <div className="absolute top-0 bottom-0 h-full w-full bg-gradient-to-b from-transparent from-50% via-black/60 to-black/80"></div>
       <div className="absolute top-2 left-2 bg-black rounded-md px-3 py-1">
         {formattedRating}
