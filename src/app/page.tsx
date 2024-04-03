@@ -2,7 +2,7 @@ import MovieCard from "@/components/MovieCard";
 import Pagination from "@/components/Pagination";
 import { getMovies } from "@/lib/data";
 
-export default async function Home({
+export default async function Page({
   searchParams,
 }: {
   searchParams: { page: string };
