@@ -15,7 +15,7 @@ export default async function FilmStats() {
   });
 
   return (
-    <div className="p-4 flex flex-wrap gap-2 overflow-scroll h-full">
+    <div className="flex flex-wrap gap-2 overflow-scroll h-full max-sm:pb-[100px]">
       <TopMoviesChart year={2023} orientation="horizontal"/>
       <DoughnutChart chartData={chartData} />
       <TopMoviesChart year={2022} orientation="vertical"/>

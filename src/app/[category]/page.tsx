@@ -17,7 +17,7 @@ export default async function CategoryPage({
   const totalPages = 200;
   return (
     <>
-      <div className="overflow-scroll h-full flex flex-wrap justify-between gap-5 p-4 pb-12">
+      <div className="overflow-scroll h-full flex flex-wrap justify-between gap-5">
         {data.results.map((movie) => {
           return <MovieCard key={movie.id} {...movie} />;
         })}

@@ -19,7 +19,7 @@ export default function DashboardLayout({
           <SideNav />
         </aside>
         <MobileMenu />
-        <main className="flex-1 h-[calc(100%-48px)] py-4">{children}</main>
+        <main className="flex-1 h-[calc(100%-48px)] p-4 max-sm:custom-padding">{children}</main>
       </div>
     </div>
   );

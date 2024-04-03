@@ -19,7 +19,7 @@ export default function Pagination({ totalPages, category }: { totalPages: numbe
 
   return (
     <>
-      <div className="inline-flex">
+      <div className="inline-flex m-auto max-sm:pb-[100px]">
         <PaginationArrow
           direction="left"
           href={createPageURL(currentPage - 1)}
