@@ -1,6 +1,16 @@
 import DoughnutChart from "@/components/DoughnutChart";
-import TopMoviesChart from "@/components/TopMoviesChart";
+// import TopMoviesChart from "@/components/TopMoviesChart";
 import { getMovies } from "@/lib/data";
+import dynamic from "next/dynamic";
+
+const DynamicTopMoviesChart = dynamic(
+  () => import("@/components/TopMoviesChart"),
+  { ssr: false }
+);
+const DynamicDoughnutChart = dynamic(
+  () => import("@/components/DoughnutChart"),
+  { ssr: false }
+);
 
 export default async function FilmStats() {
   const totalMoviesResponses = await Promise.all([
@@ -16,9 +26,9 @@ export default async function FilmStats() {
 
   return (
     <div className="flex flex-wrap gap-2 overflow-scroll h-full max-sm:pb-[100px]">
-      <TopMoviesChart year={2023} orientation="horizontal"/>
-      <DoughnutChart chartData={chartData} />
-      <TopMoviesChart year={2022} orientation="vertical"/>
+      <DynamicTopMoviesChart year={2023} orientation="horizontal" />
+      <DynamicDoughnutChart chartData={chartData} />
+      <DynamicTopMoviesChart year={2022} orientation="vertical" />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import zoomPlugin from "chartjs-plugin-zoom";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +10,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  layouts,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { getTopMovies } from "@/lib/data";
@@ -21,7 +23,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  zoomPlugin
 );
 
 export default function TopMoviesChart({
@@ -32,16 +35,17 @@ export default function TopMoviesChart({
   orientation: "vertical" | "horizontal";
 }) {
   const [chartData] = useClientFetch(year);
-  const axis = orientation === "horizontal" ? 'y' as const : 'x' as const;
+  const axis = orientation === "horizontal" ? ("y" as const) : ("x" as const);
 
   const options = {
-    indexAxis:  axis,
+    indexAxis: axis,
     elements: {
       bar: {
         borderWidth: 2,
       },
     },
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
@@ -50,6 +54,9 @@ export default function TopMoviesChart({
         display: true,
         text: `Top 10 most voted movies of ${year}`,
       },
+    },
+    layout: {
+      padding: 20,
     },
   };
 
@@ -88,8 +95,8 @@ export default function TopMoviesChart({
     ],
   };
   return (
-    <div className="relative flex-1 basis-2/3 bg-black p-4 rounded-xl">
-      <Bar options={options} data={data} />
+    <div className="relative flex-1 basis-2/3 bg-black p-4 rounded-xl sm:aspect-video max-sm:h-full">
+        <Bar options={options} data={data} />
     </div>
   );
 }
