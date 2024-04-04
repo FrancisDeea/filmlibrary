@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function GenreCard({ id, name }: { id: number; name: string }) {
   const icon = iconDictionary[name];
   const className = `
-  min-h-24 max-lg:col-span-2 rounded-xl bg-amber-600 cursor-pointer transition-all hover:scale-95 overflow-hidden
+  min-h-20 max-lg:col-span-2 rounded-xl bg-amber-600 cursor-pointer transition-all hover:scale-95 overflow-hidden
     ${
       name === "Action"
         ? "col-start-1 col-end-3 row-start-1 row-end-4 bg-gradient-to-r from-blue-600 to-violet-600"

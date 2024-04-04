@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LinkButton from "@/components/LinkButton";
+import LogoutButton from "./LogoutButton";
 
 export default function SideNav() {
   return (
@@ -7,7 +8,7 @@ export default function SideNav() {
       <LinkButton link="/" value="Home" />
       <LinkButton link="/discover" value="Discover" />
       <LinkButton link="/film-stats" value="Film Stats" />
-      <LinkButton link="/" value="Logout" />
+      <LogoutButton />
     </nav>
   );
 }

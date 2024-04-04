@@ -19,7 +19,7 @@ export default function Pagination({ totalPages, category }: { totalPages: numbe
 
   return (
     <>
-      <div className="basis-full flex justify-center items-center m-auto pt-6 pb-[80px] max-sm:pb-[200px]">
+      <div className="basis-full flex justify-center items-center m-auto pt-6 max-sm:pb-28">
         <PaginationArrow
           direction="left"
           href={createPageURL(currentPage - 1)}
