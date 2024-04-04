@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import MobileMenu from "./MobileMenu";
 import Search from "./Search";
 import SideNav from "./SideNav";
@@ -16,7 +17,9 @@ export default function DashboardLayout({
             a technical test for A-Safe Digital
           </span>
         </div>
-        <Search placeholder="Search a title movie..." />
+        <Suspense>
+          <Search placeholder="Search a title movie..." />
+        </Suspense>
       </header>
       <div className="flex flex-row h-full">
         <aside className="w-60 border-r-2 border-r-gray-700 max-sm:hidden">
