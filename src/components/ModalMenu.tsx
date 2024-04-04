@@ -8,7 +8,6 @@ export default function ModalMenu() {
         <LinkButton link="/" value="Home" />
         <LinkButton link="/discover" value="Discover" />
         <LinkButton link="/film-stats" value="Film Stats" />
-        <LinkButton link="/" value="Analytics" />
         <LinkButton link="/" value="Logout" />
       </nav>
     </aside>

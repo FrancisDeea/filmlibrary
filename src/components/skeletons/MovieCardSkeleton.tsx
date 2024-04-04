@@ -2,7 +2,7 @@ export default function MovieCardSkeleton() {
   return (
     <div
       role="status"
-      className="bg-gray-300 w-full max-w-64 h-96 max-sm:max-w-full rounded-lg flex justify-center items-center animate-pulse dark:bg-gray-700"
+      className="bg-gray-300 w-full sm:max-w-56 h-96 rounded-lg flex justify-center items-center animate-pulse dark:bg-gray-700"
     >
       <svg
         className="w-10 h-10 text-gray-200 dark:text-gray-600"

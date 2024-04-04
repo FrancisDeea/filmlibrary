@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { title: string } }) {
   console.log(movie);
 
   return (
-    <div className="overflow-y-scroll flex flex-row flex-wrap justify-center items-center gap-6 h-full relative p-4 max-sm:pb-[100px]">
+    <div className="overflow-y-scroll flex flex-row flex-wrap justify-center items-center gap-6 h-full relative p-4 pb-[100px]">
       <div className="relative overflow-hidden flex-1 shrink basis-60 z-10">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -21,7 +21,7 @@ export default async function Page({ params }: { params: { title: string } }) {
           className="max-w-72 max-sm:max-w-44 w-full rounded-xl m-auto"
         />
       </div>
-      <div className="flex-[2] basis-80 flex flex-col gap-2 z-10">
+      <div className="flex-[2] basis-80 flex flex-col gap-2 z-10 max-sm:pb-20">
         <div className="bg-red-600 rounded-md px-3 py-1 w-max font-semibold text-lg">
           {formattedRating}
         </div>

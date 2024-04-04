@@ -20,7 +20,7 @@ export default function MovieCard(props: Movie) {
 
   return (
     <Link href={`/${slug}`}>
-      <article className="bg-pink-400 w-full max-w-64 max-sm:max-w-max rounded-lg overflow-hidden relative cursor-pointer transition-all hover:scale-95 hover:saturate-150">
+      <article className="w-full sm:max-w-56 rounded-lg overflow-hidden relative cursor-pointer transition-all hover:scale-95 hover:saturate-150">
         <div className="absolute top-0 bottom-0 h-full w-full bg-gradient-to-b from-transparent from-50% via-black/60 to-black/80"></div>
         <div className="absolute top-2 left-2 bg-black rounded-md px-3 py-1">
           {formattedRating}
