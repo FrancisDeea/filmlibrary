@@ -1,16 +1,25 @@
 import MovieCard from "@/components/MovieCard";
 import Pagination from "@/components/Pagination";
-import { getMovies } from "@/lib/data";
+import { getMovieBySearch, getMovies } from "@/lib/data";
+import { getMoviesResponse } from "@/lib/definitions";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { page: string };
+  searchParams?: { page?: string; query?: string };
 }) {
-  const page = searchParams.page || "1";
-  const data = await getMovies(null, page);
-  // const ITEMS_PER_PAGE = 20;
-  const totalPages = 500;
+  const page = searchParams?.page || "1";
+  const query = searchParams?.query || "";
+  let data: getMoviesResponse;
+  let totalPages: number;
+
+  if (query) {
+    data = await getMovieBySearch(query, page);
+    totalPages = data.total_pages;
+  } else {
+    data = await getMovies(null, page);
+    totalPages = 500;
+  }
   return (
     <>
       <div className="overflow-scroll h-full flex flex-wrap justify-center items-center gap-5">

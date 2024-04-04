@@ -18,7 +18,7 @@ const apiBase = process.env.API_BASE_URL as string;
 const apiCategories = process.env.API_CATEGORIES as string;
 // const apiTopMovies = process.env.API_TOP_MOVIES as string;
 const apiSearch =
-  "https://api.themoviedb.org/3/search/movie?api_key=e3a5cf95aad68c554239087d8f183cf4&include_adult=false&language=en-US&page=1";
+  "https://api.themoviedb.org/3/search/movie?api_key=e3a5cf95aad68c554239087d8f183cf4&include_adult=false&language=en-US";
 
 const apiTopMovies =
   "https://api.themoviedb.org/3/discover/movie?api_key=e3a5cf95aad68c554239087d8f183cf4&include_adult=false&include_video=false&language=en-US&sort_by=vote_average.desc&vote_count.gte=3000&with_release_type=1";
@@ -87,10 +87,12 @@ export async function getTopMovies(
 }
 
 export async function getMovieBySearch(
-  string: string
+  query: string,
+  page: string = "1"
 ): Promise<getMoviesResponse> {
-  const query = `&query=${encodeURIComponent(string)}`;
-  const api = apiSearch + query;
+  const queryParam = `&query=${encodeURIComponent(query)}`;
+  const pageParam = `&page=${page}`;
+  const api = apiSearch + queryParam + pageParam;
   try {
     const response = await fetch(api, options);
     if (!response.ok) {
