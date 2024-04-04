@@ -11,8 +11,6 @@ export default async function CategoryPage({
   searchParams: { [key: string]: string | undefined };
 }) {
   const id: string | undefined = findIdByCategory(params.category);
-  console.log(id);
-  console.log(searchParams);
   const data = await getMovies(id, searchParams.page);
   const totalPages = 200;
   return (

@@ -22,13 +22,7 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
   // If the current page is somewhere in the middle,
   // show the first page, an ellipsis, the current page and its neighbors,
   // another ellipsis, and the last page.
-  return [
-    1,
-    currentPage - 1,
-    currentPage,
-    currentPage + 1,
-    totalPages,
-  ];
+  return [1, currentPage - 1, currentPage, currentPage + 1, totalPages];
 };
 
 // export const findCategoryById = (id: number): string => {
@@ -72,4 +66,9 @@ export const findIdByCategory = (category: string): string | undefined => {
     (key) => categoryDictionary[Number(key)] === categoryCapitalized
   );
   return result;
+};
+
+export const getSlug = (string: string): string => {
+  const movieTitle = string;
+  return movieTitle.toLowerCase().replaceAll(" ", "-").replaceAll(".", "").replaceAll(":", "");
 };

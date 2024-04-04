@@ -78,7 +78,7 @@ export default function GenreCard({ id, name }: { id: number; name: string }) {
   return (
     <Link
       key={id}
-      href={`/${name.toLocaleLowerCase()}`}
+      href={`/discover/${name.toLocaleLowerCase()}`}
       className={`${className}`}
     >
       <div className="p-4 flex justify-center items-center relative h-full">
