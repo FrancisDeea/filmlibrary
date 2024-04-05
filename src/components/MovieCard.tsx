@@ -5,7 +5,9 @@ import { categoryDictionary, getSlug } from "@/lib/utils";
 import Link from "next/link";
 
 export default function MovieCard(props: Movie) {
-  const basePathImages = "https://image.tmdb.org/t/p/w500";
+  // Base path from api to get movie images. Add poster_path prop to complete each link to the image.
+  const basePathApiImages = "https://image.tmdb.org/t/p/w500";
+  // Get data movie from its props and formate to show them
   const {
     title,
     release_date: year,
@@ -13,36 +15,51 @@ export default function MovieCard(props: Movie) {
     poster_path,
     vote_average: rating,
   } = props;
-  const formattedYear = year.slice(0, 4);
-  const formattedRating = rating.toFixed(1);
-  const genres = genre_ids.slice(0, 2);
+
+  // This util function take a movie title and returns a slug to link to its dynamic [title] page
   const slug = getSlug(title);
+  const genres = genre_ids.slice(0, 2);
+  const formattedYear = year.slice(0, 4);
+  const formattedRating = Number(rating.toFixed(1));
+
+  const ratingBackground =
+    formattedRating < 6
+      ? "bg-red-600"
+      : formattedRating > 5 && formattedRating < 7.5
+      ? "bg-orange-400"
+      : "bg-green-600";
 
   return (
-    <Link href={`/${slug}`}>
-      <article className="w-full sm:max-w-56 rounded-lg overflow-hidden relative cursor-pointer transition-all hover:scale-95 hover:saturate-150">
-        <div className="absolute top-0 bottom-0 h-full w-full bg-gradient-to-b from-transparent from-50% via-black/60 to-black/80"></div>
-        <div className="absolute top-2 left-2 bg-black rounded-md px-3 py-1">
+    <Link href={`/${slug}`} className="flex-[18%] basis-52">
+      <article className="w-full rounded-lg overflow-hidden relative cursor-pointer transition-all hover:scale-95 hover:saturate-150">
+        {/* Add a dark gradient across a div to improve info visibility */}
+        <div className="movie-gradient"></div>
+        <div
+          className={`absolute top-2 left-2 ${ratingBackground} text-white font-semibold rounded-md px-3 py-1`}
+        >
           {formattedRating}
         </div>
+
         <img
-          src={`${basePathImages}${poster_path}`}
+          src={`${basePathApiImages}${poster_path}`}
           alt={`poster of ${title} movie`}
-          className="aspect-auto object-cover object-center bg-gradient-to-t bg-black"
+          className="w-full aspect-[1/1.5] object-cover object-center"
           loading="lazy"
         />
+
         <div className="absolute z-10 bottom-2 left-2 flex flex-col gap-1">
-          <div className="flex gap-2 text-sm">
+          <div className="flex gap-2">
             {genres.map((genre) => (
-              <span key={genre} className="bg-red-600 px-2 rounded-xl">
+              <span
+                key={genre}
+                className="bg-red-900 px-2 rounded-xl text-sm text-white font-medium"
+              >
                 {categoryDictionary[genre]}
               </span>
             ))}
           </div>
-          <span className="text-2xl font-semibold">{title}</span>
-          <div className="flex flex-row gap-2">
-            <span>{formattedYear}</span>
-          </div>
+          <span className="text-xl font-semibold text-white">{title}</span>
+          <span className="font-medium text-white">{formattedYear}</span>
         </div>
       </article>
     </Link>

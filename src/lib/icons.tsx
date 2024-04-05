@@ -44,11 +44,11 @@ export const DocumentaryIcon = ({ style }: { style?: string }) => {
       <g
         fill="none"
         stroke="currentColor"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeWidth="2"
       >
         <path d="M32 6H22v36h10zm10 0H32v36h10zM10 6l8 1l-3.5 35L6 41z" />
-        <path stroke-linecap="round" d="M37 18v-3m-10 3v-3" />
+        <path strokeLinecap="round" d="M37 18v-3m-10 3v-3" />
       </g>
     </svg>
   );
@@ -191,7 +191,7 @@ export const WarIcon = ({ style }: { style?: string }) => {
       height="1em"
       viewBox="0 0 48 48"
     >
-      <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+      <g fill="currentColor" fillRule="evenodd" clipRule="evenodd">
         <path d="M9.007 24c-1.104 0-2.021-.9-1.87-1.995C8.07 15.218 13.696 10 20.5 10c4.997 0 9.36 2.815 11.694 7H43a1 1 0 1 1 0 2h-9.886c.352.956.607 1.962.75 3.005c.15 1.095-.767 1.995-1.872 1.995H20.98zm11.937-2H9.159c.92-5.728 5.697-10 11.341-10c5.644 0 10.422 4.273 11.341 10H20.996zM18 32a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-2 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m8 3a3 3 0 1 0 0-6a3 3 0 0 0 0 6m0-2a1 1 0 1 0 0-2a1 1 0 0 0 0 2m12-1a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-2 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0" />
         <path d="M7.187 26c-2.174 0-3.709 2.006-3.021 3.949l1.397 3.948C6.43 36.347 8.864 38 11.606 38h24.788c2.742 0 5.176-1.653 6.043-4.103l1.397-3.948c.688-1.943-.847-3.949-3.021-3.949zm34.621 2.461c-.197-.257-.54-.461-.995-.461H7.187c-.455 0-.799.204-.995.461a.84.84 0 0 0-.14.82l1.397 3.95C8.013 34.823 9.649 36 11.606 36h24.788c1.957 0 3.593-1.176 4.157-2.77l1.398-3.948a.84.84 0 0 0-.141-.82" />
       </g>
@@ -210,9 +210,9 @@ export const SpinnerIcon = ({ style }: { style?: string }) => {
     >
       <g fill="currentColor">
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           d="M12 19a7 7 0 1 0 0-14a7 7 0 0 0 0 14m0 3c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           opacity="0.2"
         />
         <path d="M2 12C2 6.477 6.477 2 12 2v3a7 7 0 0 0-7 7z" />

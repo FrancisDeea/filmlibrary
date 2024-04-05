@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function GenreCard({ id, name }: { id: number; name: string }) {
   const icon = iconDictionary[name];
   const className = `
-  min-h-20 max-lg:col-span-2 rounded-xl bg-amber-600 cursor-pointer transition-all hover:scale-95 overflow-hidden
+  min-h-20 max-lg:col-span-2 rounded-xl cursor-pointer transition-all hover:scale-95 overflow-hidden
     ${
       name === "Action"
         ? "col-start-1 col-end-3 row-start-1 row-end-4 bg-gradient-to-r from-blue-600 to-violet-600"
@@ -63,17 +63,6 @@ export default function GenreCard({ id, name }: { id: number; name: string }) {
     }
     ${name === "War" ? "bg-gradient-to-r from-emerald-500 to-lime-600" : null}
     `;
-  let imagePath;
-
-  name === "Adventure"
-    ? (imagePath = "/adventure-category.webp")
-    : name === "Animation"
-    ? (imagePath = "/animation-category.webp")
-    : name === "Action"
-    ? (imagePath = "/action-category.webp")
-    : name === "Horror"
-    ? (imagePath = "/horror-category.webp")
-    : null;
 
   return (
     <Link
@@ -81,16 +70,9 @@ export default function GenreCard({ id, name }: { id: number; name: string }) {
       href={`/discover/${name.toLocaleLowerCase()}`}
       className={`${className}`}
     >
-      <div className="p-4 flex justify-center items-center relative h-full">
-        {/* {imagePath && (
-          <img
-            src={imagePath}
-            alt=""
-            className="absolute brightness-[0.8] hover:brightness-100 hover:saturate-[1.2]"
-          />
-        )} */}
-        <span className="text-xl font-semibold z-10">{name}</span>
-        <span className="absolute bottom-0 right-0 text-[40px]">{icon}</span>
+      <div className="flex justify-center items-center relative h-full">
+        <span className="text-xl font-semibold text-white">{name}</span>
+        <span className="absolute bottom-0 right-0 text-[40px] text-gray-200">{icon}</span>
       </div>
     </Link>
   );

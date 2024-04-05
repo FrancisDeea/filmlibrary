@@ -3,13 +3,22 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { generatePagination } from "@/lib/utils";
+import { RefObject } from "react";
 
-export default function Pagination({ totalPages, category }: { totalPages: number, category?: string }) {
+export default function Pagination({
+  totalPages,
+  category,
+  scroller,
+}: {
+  totalPages: number;
+  category?: string;
+  scroller: RefObject<HTMLDivElement>;
+}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
-  const allPages = generatePagination(currentPage, totalPages);
-  const categoryPath = `/${category}` || ""
+
+  const generatedPages = generatePagination(currentPage, totalPages);
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
@@ -17,42 +26,47 @@ export default function Pagination({ totalPages, category }: { totalPages: numbe
     return `${pathname}?${params.toString()}`;
   };
 
+  const handleClick = () => {
+    (scroller.current as HTMLDivElement).scrollTop = 0;
+  };
+
   return (
-    <>
-      <div className="basis-full flex justify-center items-center m-auto pt-6 max-sm:pb-28">
-        <PaginationArrow
-          direction="left"
-          href={createPageURL(currentPage - 1)}
-          isDisabled={currentPage <= 1}
-        />
+    <div
+      onClick={handleClick}
+      className="basis-full flex justify-center items-center m-auto p-2 max-sm:pb-28"
+    >
+      <PaginationArrow
+        direction="left"
+        href={createPageURL(currentPage - 1)}
+        isDisabled={currentPage <= 1}
+      />
 
-        <div className="flex -space-x-px">
-          {allPages.map((page, index) => {
-            let position: "first" | "last" | "single" | "middle" | undefined;
+      <div className="flex">
+        {generatedPages.map((page, index) => {
+          let position: "first" | "last" | "single" | "middle" | undefined;
 
-            if (index === 0) position = "first";
-            if (index === allPages.length - 1) position = "last";
-            if (allPages.length === 1) position = "single";
+          if (index === 0) position = "first";
+          if (index === generatedPages.length - 1) position = "last";
+          if (generatedPages.length === 1) position = "single";
 
-            return (
-              <PaginationNumber
-                key={page}
-                href={createPageURL(page)}
-                page={page}
-                position={position}
-                isActive={currentPage === page}
-              />
-            );
-          })}
-        </div>
-
-        <PaginationArrow
-          direction="right"
-          href={createPageURL(currentPage + 1)}
-          isDisabled={currentPage >= totalPages}
-        />
+          return (
+            <PaginationNumber
+              key={page}
+              href={createPageURL(page)}
+              page={page}
+              position={position}
+              isActive={currentPage === page}
+            />
+          );
+        })}
       </div>
-    </>
+
+      <PaginationArrow
+        direction="right"
+        href={createPageURL(currentPage + 1)}
+        isDisabled={currentPage >= totalPages}
+      />
+    </div>
   );
 }
 
@@ -67,11 +81,13 @@ function PaginationNumber({
   position?: "first" | "last" | "middle" | "single";
   isActive: boolean;
 }) {
-  const className = `flex h-10 w-10 items-center justify-center text-sm border
+  const className = `flex h-10 w-10 items-center justify-center text-sm border-t-2 border-l-2 border-b-2 last-of-type:border-r-2 border-blue-600
     ${position === "first" || position === "single" ? "rounded-l-md" : null}
     ${position === "last" || position === "single" ? "rounded-r-md" : null}
-    ${isActive ? "z-10 bg-blue-600 border-blue-600 text-white" : null}
-    ${!isActive && position !== "middle" ? "hover:bg-gray-100" : null}`
+    ${isActive ? "z-10 bg-blue-600 text-white" : null}
+    ${
+      !isActive && position !== "middle" ? "bg-dark hover:bg-background2" : null
+    }`;
 
   return isActive || position === "middle" ? (
     <div className={className}>{page}</div>
@@ -93,15 +109,10 @@ function PaginationArrow({
 }) {
   const className = `flex h-10 w-10 items-center justify-center rounded-md border"
     ${isDisabled ? "pointer-events-none text-gray-300" : null}
-    ${!isDisabled ? "hover:bg-gray-100" : null}
+    ${!isDisabled ? "bg-dark hover:bg-background2" : null}
     ${direction === "left" ? "mr-2 md:mr-4" : "ml-2 md:ml-4"}`;
 
   const icon = direction === "left" ? "<--" : "-->";
-  // direction === "left" ? (
-  //   <ArrowLeftIcon className="w-4" />
-  // ) : (
-  //   <ArrowRightIcon className="w-4" />
-  // );
 
   return isDisabled ? (
     <div className={className}>{icon}</div>

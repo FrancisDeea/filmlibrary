@@ -1,7 +1,6 @@
-import { Suspense } from "react";
-import MobileMenu from "./MobileMenu";
-import Search from "./Search";
+import Header from "./Header";
 import SideNav from "./SideNav";
+import MobileMenu from "./MobileMenu";
 
 export default function DashboardLayout({
   children,
@@ -9,24 +8,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="h-full border-2 border-gray-700 rounded-lg overflow-hidden max-sm:border-none">
-      <header className="p-4 w-full bg-[#27272a] border-b-2 border-b-gray-700 min-h-32 flex flex-col justify-center items-center gap-4">
-        <div className="flex flex-wrap justify-center items-center gap-2">
-          <p className="font-bold text-xl">Movie Library</p>
-          <span className="font-normal italic text-base">
-            a technical test for A-Safe Digital
-          </span>
-        </div>
-        <Suspense>
-          <Search placeholder="Search a title movie..." />
-        </Suspense>
-      </header>
+    <div className="h-full border-2 border-medium rounded-lg overflow-hidden max-sm:border-none">
+      <Header />
       <div className="flex flex-row h-full">
-        <aside className="w-60 border-r-2 border-r-gray-700 max-sm:hidden">
-          <SideNav />
-        </aside>
+        <SideNav />
         <MobileMenu />
-        <main className="flex-1 h-[calc(100%-128px)] p-4 max-sm:custom-padding">
+        <main className="flex-1 h-[calc(100%-56px)] max-sm:custom-padding sm:p-4">
           {children}
         </main>
       </div>

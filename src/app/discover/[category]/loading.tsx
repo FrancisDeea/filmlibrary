@@ -5,8 +5,10 @@ export default function Loading() {
     <MovieCardSkeleton key={index} />
   ));
   return (
-    <div className="overflow-scroll h-full flex flex-wrap justify-center items-center gap-5 p-4 pb-12">
-      {skeletons}
+    <div className="h-full">
+      <div className="overflow-y-scroll h-full ct-flex-row flex-wrap">
+        {skeletons}
+      </div>
     </div>
   );
 }
