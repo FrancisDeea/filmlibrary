@@ -3,7 +3,7 @@ import LogoutButton from "./LogoutButton";
 
 export default function SideNav() {
   return (
-    <aside className="w-60 bg-dark border-r-2 border-r-medium max-sm:hidden">
+    <aside className="w-60 bg-secondary/20 border-r-2 border-r-border max-sm:hidden">
       <nav className="h-full ct-flex-col justify-start gap-2 p-2">
         <LinkButton link="/" value="Home" />
         <LinkButton link="/discover" value="Discover" />

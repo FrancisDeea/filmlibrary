@@ -25,7 +25,15 @@ p {
 
 @layer base {
   :root {
-    --background1: 221deg 86% 92%;
+    --text: 220 7% 8%;
+    --background: 216 33% 97%;
+    --background2: 216 16% 94%
+    --primary: 229 52% 54%;
+    --secondary: 228 75% 75%;
+    --accent: 229 98% 61%;
+    --border: 200 15% 73%;
+
+    /* --background1: 221deg 86% 92%;
     --background2: 222deg 81% 96%;
     --dark: 205 223 255;
     --medium: 222deg 100% 75%;
@@ -38,11 +46,18 @@ p {
       rgb(216, 226, 251) 0%,
       rgb(227, 234, 252) 100%
     );
-    --footer: #6d96cf;
+    --footer: #6d96cf; */
   }
 
   [class="dark"] {
-    --background1: 225deg 59% 11%;
+    --text: 220 7% 92%;
+    --background: 216 33% 3%;
+    --background2: 216 16% 6%;
+    --primary: 229 52% 46%;
+    --secondary: 228 75% 25%;
+    --accent: 229 98% 39%;
+    --border: 0 0% 18%;
+    /* --background1: 225deg 59% 11%;
     --background2: 225deg 40% 18%;
     --dark: 2 6 23;
     --medium: 213deg 30% 32%;
@@ -55,11 +70,11 @@ p {
       hsla(225, 59%, 8%, 1) 0%,
       hsla(226, 58%, 12%, 1) 100%
     );
-    --footer: #1d2837;
+    --footer: #1d2837; */
   }
 
   body {
-    @apply bg-gradient text-text;
+    @apply bg-background text-text;
   }
 
   h1,
@@ -90,7 +105,7 @@ p {
   }
 
   .border-header {
-    @apply border-b-2 border-b-medium max-sm:border-none max-sm:rounded-lg
+    @apply border-b-2 border-b-border/70 max-sm:border-none max-sm:rounded-lg;
   }
 }
 

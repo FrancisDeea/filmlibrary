@@ -1,6 +1,7 @@
 import { signOut } from "@/auth";
 
 export default function LogoutButton() {
+  // LogoutButton is wrapped in a form that is able to send a server action to hadle authentication
   return (
     <form
       action={async () => {
@@ -8,7 +9,7 @@ export default function LogoutButton() {
         await signOut();
       }}
     >
-      <button className="bg-gray-800 p-2 w-full text-left rounded-md font-semibold sm:hover:bg-gray-700 max-sm:bg-transparent">
+      <button className="bg-background1 sm:hover:bg-background2 p-2 w-full text-left rounded-md font-semibold max-sm:bg-transparent">
         <div className="">Sign Out</div>
       </button>
     </form>
