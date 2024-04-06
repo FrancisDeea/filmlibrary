@@ -8,7 +8,7 @@ export default async function Page() {
         redirect('/')
     }
   return (
-    <div className="flex justify-center items-center max-sm:items-start h-full">
+    <div className="flex justify-center items-center h-full">
       <LoginForm />
     </div>
   );

@@ -7,60 +7,53 @@ export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
 
   return (
-    <form action={dispatch} className="max-w-sm">
-      <div className="flex-1 rounded-lg bg-gray-800 px-6 pb-4 pt-8">
-        <h1 className={`mb-3 text-2xl`}>Please log in to continue.</h1>
-        <div className="w-full">
-          <div>
-            <label
-              className="mb-3 mt-5 block text-xs font-medium "
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-500 py-[9px] pl-10 text-sm outline-2"
-                id="email"
-                type="email"
-                name="email"
-                placeholder="user@nextmail.com"
-                required
-              />
-            </div>
-          </div>
-          <div className="mt-4">
-            <label
-              className="mb-3 mt-5 block text-xs font-medium"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <div className="relative">
-              <input
-                className="peer block w-full rounded-md border border-gray-500 py-[9px] pl-10 text-sm outline-2"
-                id="password"
-                type="password"
-                name="password"
-                placeholder="123456"
-                required
-                minLength={6}
-              />
-            </div>
-          </div>
+    <form action={dispatch} className="w-full p-4 rounded-lg max-w-sm bg-secondary/10 shadow-md">
+      <div className="ct-flex-col items-center gap-0 mb-6">
+        <h1 className="">Movie Library</h1>
+        <p>a technical test for A-Safe Digital.</p>
+      </div>
+      <div className="ct-flex-col gap-6">
+        <div className="flex flex-col gap-1">
+          <label className="font-medium text-sm" htmlFor="email">
+            Email
+          </label>
+          <input
+            className="peer bg-transparent block w-full rounded-lg p-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="user@nextmail.com"
+            required
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label className="font-medium text-sm" htmlFor="password">
+            Password
+          </label>
+          <input
+            className="peer bg-transparent block w-full rounded-lg p-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            id="password"
+            type="password"
+            name="password"
+            placeholder="123456"
+            required
+            minLength={6}
+          />
         </div>
         <LoginButton />
-        <div
-          className="flex h-8 items-end space-x-1"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {errorMessage && (
-            <>
-              <p className="text-sm text-red-500">{errorMessage}</p>
-            </>
-          )}
-        </div>
+      </div>
+      <div
+        className={`${
+          !errorMessage ? "hidden" : null
+        } flex h-8 items-end space-x-1`}
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {errorMessage && (
+          <>
+            <p className="text-sm text-red-500">{errorMessage}</p>
+          </>
+        )}
       </div>
     </form>
   );
@@ -70,7 +63,10 @@ function LoginButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button className="mt-4 w-full bg-gray-900 p-2" aria-disabled={pending}>
+    <button
+      className="w-full text-white bg-accent rounded-lg p-1.5"
+      aria-disabled={pending}
+    >
       Log in
     </button>
   );
