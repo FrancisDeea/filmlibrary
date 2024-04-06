@@ -85,7 +85,6 @@ export const FamilyIcon = ({ style }: { style?: string }) => {
     </svg>
   );
 };
-
 export const FantasyIcon = ({ style }: { style?: string }) => {
   return (
     <svg
@@ -198,7 +197,6 @@ export const WarIcon = ({ style }: { style?: string }) => {
     </svg>
   );
 };
-
 export const SpinnerIcon = ({ style }: { style?: string }) => {
   return (
     <svg
@@ -217,6 +215,66 @@ export const SpinnerIcon = ({ style }: { style?: string }) => {
         />
         <path d="M2 12C2 6.477 6.477 2 12 2v3a7 7 0 0 0-7 7z" />
       </g>
+    </svg>
+  );
+};
+export const SunIcon = ({ style }: { style?: string }) => {
+  return (
+    <svg
+      className={`${style} animate-fade animate-duration-300`}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      strokeWidth="1.25"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" fill="none" />
+      <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+    </svg>
+  );
+};
+
+export const MoonIcon = ({ style }: { style?: string }) => {
+  return (
+    <svg
+      className={`${style} animate-fade animate-duration-300`}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      strokeWidth="1.25"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path
+        d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+        fill="none"
+      />
+    </svg>
+  );
+};
+
+export const MagnifyIcon = ({ style }: { style?: string }) => {
+  return (
+    <svg
+      className={`${style}`}
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 256 256"
+    >
+      <path
+        fill="currentColor"
+        d="m229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32M40 112a72 72 0 1 1 72 72a72.08 72.08 0 0 1-72-72"
+      />
     </svg>
   );
 };
