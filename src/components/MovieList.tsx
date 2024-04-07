@@ -16,6 +16,7 @@ export default function MovieList({
   const scrollerRef = useRef<HTMLDivElement>(null);
   return (
     <div
+      id="scroller"
       ref={scrollerRef}
       className="overflow-y-scroll h-full ct-flex-row flex-wrap"
     >

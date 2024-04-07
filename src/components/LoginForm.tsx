@@ -2,12 +2,16 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import { authenticate } from "@/lib/actions";
+import { SpinnerIcon } from "@/lib/icons";
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
 
   return (
-    <form action={dispatch} className="w-full p-4 rounded-lg max-w-sm bg-secondary/10 shadow-md">
+    <form
+      action={dispatch}
+      className="w-full p-4 rounded-lg max-w-sm bg-secondary/10 shadow-md"
+    >
       <div className="ct-flex-col items-center gap-0 mb-6">
         <h1 className="">Movie Library</h1>
         <p>a technical test for A-Safe Digital.</p>
@@ -61,13 +65,14 @@ export default function LoginForm() {
 
 function LoginButton() {
   const { pending } = useFormStatus();
+  const buttonValue = pending ? <SpinnerIcon /> : "Log in";
 
   return (
     <button
       className="w-full text-white bg-accent rounded-lg p-1.5"
       aria-disabled={pending}
     >
-      Log in
+      {buttonValue}
     </button>
   );
 }

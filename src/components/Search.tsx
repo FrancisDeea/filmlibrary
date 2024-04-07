@@ -49,13 +49,12 @@ export default function Search({ placeholder }: { placeholder: string }) {
   });
 
   return (
-    <div className="flex items-center">
+    <div className="flex justify-center items-center max-sm:searcher-mobile">
       <label htmlFor="searcher" className="sr-only">
         Search
       </label>
 
       <dialog
-        id="dialog"
         ref={dialogRef}
         className="absolute inset-0 w-2/3 max-sm:w-[90%] h-20 rounded-lg z-20 backdrop:bg-black/80"
       >
@@ -74,11 +73,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
         </div>
       </dialog>
 
-      <button
-        onClick={() =>
-          (document.getElementById("dialog") as HTMLDialogElement).showModal()
-        }
-      >
+      <button className="w-full flex justify-center" onClick={() => dialogRef.current?.showModal()}>
         <MagnifyIcon style="size-6" />
       </button>
     </div>

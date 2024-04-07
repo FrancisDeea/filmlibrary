@@ -96,8 +96,12 @@ p {
     @apply h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-full;
   }
 
-  .custom-padding {
-    @apply pt-4 px-0;
+  .custom-layout {
+    @apply px-0 min-h-dvh;
+  }
+
+  .searcher-mobile {
+    @apply flex-1 h-full w-full
   }
 
   .movie-gradient {

@@ -13,7 +13,7 @@ export default function DashboardLayout({
       <div className="flex flex-row h-full">
         <SideNav />
         <MobileMenu />
-        <main className="bg-background2 flex-1 h-[calc(100%-56px)] max-sm:custom-padding sm:p-4">
+        <main className="bg-background2 flex-1 h-[calc(100%-56px)] max-sm:custom-layout sm:p-4">
           {children}
         </main>
       </div>
