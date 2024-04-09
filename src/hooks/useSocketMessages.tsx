@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function useSocketMessages(socket) {
+export default function useSocketMessages(socket: any) {
   const [messages, setMessages] = useState<
     { id: string; content: string; username: string }[] | []
   >([]);

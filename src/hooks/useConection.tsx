@@ -3,7 +3,7 @@
 import { Session } from "next-auth";
 import { useEffect } from "react";
 
-export default function useConection(socket, session: Session | null) {
+export default function useConection(socket: any, session: Session | null) {
   socket.auth.username = session?.user?.name;
   useEffect(() => {
     socket.connect();
