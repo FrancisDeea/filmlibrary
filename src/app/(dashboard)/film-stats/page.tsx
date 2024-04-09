@@ -1,5 +1,4 @@
-import DoughnutChart from "@/components/DoughnutChart";
-// import TopMoviesChart from "@/components/TopMoviesChart";
+
 import { getMovies } from "@/lib/data";
 import dynamic from "next/dynamic";
 

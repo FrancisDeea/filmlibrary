@@ -15,7 +15,7 @@ import {
 import { Bar } from "react-chartjs-2";
 import { getTopMovies } from "@/lib/data";
 import { getMoviesResponse } from "@/lib/definitions";
-import useClientFetch from "@/app/hooks/useClientFetch";
+import useClientFetch from "@/hooks/useClientFetch";
 
 ChartJS.register(
   CategoryScale,

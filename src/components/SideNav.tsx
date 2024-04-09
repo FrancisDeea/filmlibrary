@@ -8,6 +8,7 @@ export default function SideNav() {
         <LinkButton link="/" value="Home" />
         <LinkButton link="/discover" value="Discover" />
         <LinkButton link="/film-stats" value="Film Stats" />
+        <LinkButton link="/colaborate" value="Colaborate" />
         <LogoutButton />
       </nav>
     </aside>

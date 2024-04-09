@@ -1,3 +1,5 @@
+import { Socket } from "socket.io-client";
+
 export interface LinkButton {
   link: string;
   value: string;
@@ -56,3 +58,10 @@ export type User = {
   email: string;
   password: string;
 };
+
+export interface SocketExtended extends Socket {
+  auth: {
+    username: any
+    serverOffset: any
+  }
+}

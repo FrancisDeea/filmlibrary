@@ -1,6 +1,7 @@
-'use server'
+"use server";
 
 import { signIn } from "@/auth";
+import { signOut } from "@/auth";
 import { AuthError } from "next-auth";
 
 // ...
@@ -22,4 +23,8 @@ export async function authenticate(
     }
     throw error;
   }
+}
+
+export async function handleLogOut() {
+  await signOut();
 }

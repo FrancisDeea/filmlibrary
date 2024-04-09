@@ -1,9 +1,9 @@
 "use client";
 
 import LinkButton from "./LinkButton";
+import LogoutButton from "./LogoutButton";
 
 export default function ModalMenu() {
-
   const handleClick = () => {
     const modalInput = document.getElementById("modalMenu") as HTMLInputElement;
     modalInput.checked = false;
@@ -27,7 +27,8 @@ export default function ModalMenu() {
           <LinkButton link="/" value="Home" />
           <LinkButton link="/discover" value="Discover" />
           <LinkButton link="/film-stats" value="Film Stats" />
-          <LinkButton link="/" value="Logout" />
+          <LinkButton link="/colaborate" value="Colaborate" />
+          <LogoutButton />
         </nav>
       </aside>
     </>
