@@ -7,7 +7,7 @@ import { io } from "socket.io-client";
 import { Session } from "next-auth";
 import { SocketExtended } from "@/lib/definitions";
 
-const socket = io("http://localhost:4000", {
+const socket = io("https://realtime-colaboration-socket.onrender.com", {
   auth: {
     username: "anonymous",
     serverOffset: 0,
