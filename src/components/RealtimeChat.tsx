@@ -5,9 +5,10 @@ import useConection from "@/hooks/useConection";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import { Session } from "next-auth";
-import { SocketExtended } from "@/lib/definitions";
 
-const socket = io("https://realtime-colaboration-socket.onrender.com", {
+const socketUrl = process.env.NODE_ENV !== 'development' ? process.env.NEXT_PUBLIC_SOCKET_URL as string : 'http://localhost:4000'
+
+const socket = io(socketUrl, {
   auth: {
     username: "anonymous",
     serverOffset: 0,
