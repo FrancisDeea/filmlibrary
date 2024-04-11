@@ -50,7 +50,7 @@ export default function DoughnutChart({
 
   return (
     <div className="flex-1 basis-96 aspect-square relative bg-black p-4 rounded-xl flex flex-col justify-center">
-      <h2 className="text-center">
+      <h2 className="text-center text-white text-base">
         Total movies in database ordered by genres
       </h2>
       <Doughnut data={data} options={options} />

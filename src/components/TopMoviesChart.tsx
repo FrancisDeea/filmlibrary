@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import zoomPlugin from "chartjs-plugin-zoom";
 import {
   Chart as ChartJS,
@@ -13,9 +12,6 @@ import {
   layouts,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { getTopMovies } from "@/lib/data";
-import { getMoviesResponse } from "@/lib/definitions";
-import useClientFetch from "@/hooks/useClientFetch";
 
 ChartJS.register(
   CategoryScale,
@@ -28,13 +24,17 @@ ChartJS.register(
 );
 
 export default function TopMoviesChart({
-  year,
+  chartData,
   orientation,
+  year,
 }: {
-  year: number;
+  chartData: {
+    title: string;
+    votes: number;
+  }[];
   orientation: "vertical" | "horizontal";
+  year: number;
 }) {
-  const [chartData] = useClientFetch(year);
   const axis = orientation === "horizontal" ? ("y" as const) : ("x" as const);
 
   const options = {
@@ -96,7 +96,7 @@ export default function TopMoviesChart({
   };
   return (
     <div className="relative flex-1 basis-2/3 bg-black p-4 rounded-xl sm:aspect-video max-sm:h-full">
-        <Bar options={options} data={data} />
+      <Bar options={options} data={data} />
     </div>
   );
 }

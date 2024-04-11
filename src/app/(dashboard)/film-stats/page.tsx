@@ -1,5 +1,4 @@
-
-import { getMovies } from "@/lib/data";
+import { getMovies, getTopMovies } from "@/lib/data";
 import dynamic from "next/dynamic";
 
 const DynamicTopMoviesChart = dynamic(
@@ -12,6 +11,8 @@ const DynamicDoughnutChart = dynamic(
 );
 
 export default async function FilmStats() {
+  const topMovies2023 = await getTopMovies(2023);
+  const topMovies2022 = await getTopMovies(2022);
   const totalMoviesResponses = await Promise.all([
     getMovies("28"),
     getMovies("12"),
@@ -25,9 +26,17 @@ export default async function FilmStats() {
 
   return (
     <div className="flex flex-wrap gap-2 overflow-scroll h-full max-sm:pb-28">
-      <DynamicTopMoviesChart year={2023} orientation="horizontal" />
+      <DynamicTopMoviesChart
+        chartData={topMovies2023}
+        year={2023}
+        orientation="horizontal"
+      />
       <DynamicDoughnutChart chartData={chartData} />
-      <DynamicTopMoviesChart year={2022} orientation="vertical" />
+      <DynamicTopMoviesChart
+        chartData={topMovies2022}
+        year={2022}
+        orientation="vertical"
+      />
     </div>
   );
 }

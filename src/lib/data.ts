@@ -2,30 +2,20 @@
 import { getCategoriesResponse, getMoviesResponse } from "./definitions";
 import { categoryDictionary } from "./utils";
 
-// const urlBase = "https://advanced-movie-search.p.rapidapi.com/discover/movie";
-// const urlCategories =
-//   "https://advanced-movie-search.p.rapidapi.com/genre/movie/list";
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "content-type": "application/json",
-//     "X-RapidAPI-Key": process.env.API_KEY as string,
-//     "X-RapidAPI-Host": process.env.API_HOST as string,
-//   },
-// };
-
-const apiBase = process.env.API_BASE_URL as string;
-const apiCategories = process.env.API_CATEGORIES as string;
-// const apiTopMovies = process.env.API_TOP_MOVIES as string;
+const apiCategories =
+  "https://api.themoviedb.org/3/genre/movie/list?language=en";
+const apiBase =
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&with_release_type=1";
 const apiSearch =
-  "https://api.themoviedb.org/3/search/movie?api_key=e3a5cf95aad68c554239087d8f183cf4&include_adult=false&language=en-US";
+  "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US";
 
 const apiTopMovies =
-  "https://api.themoviedb.org/3/discover/movie?api_key=e3a5cf95aad68c554239087d8f183cf4&include_adult=false&include_video=false&language=en-US&sort_by=vote_average.desc&vote_count.gte=3000&with_release_type=1";
+  "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&sort_by=vote_average.desc&vote_count.gte=3000&with_release_type=1";
 
 const options = {
   method: "GET",
   headers: {
+    Authorization: `Bearer ${process.env.API_MOVIE_TOKEN}`,
     accept: "application/json",
   },
 };
@@ -68,9 +58,7 @@ export async function getCategories(): Promise<getCategoriesResponse> {
   }
 }
 
-export async function getTopMovies(
-  year: number = 2024
-): Promise<getMoviesResponse> {
+export async function getTopMovies(year: number = 2024) {
   const range = `&primary_release_date.gte=${year}-01-31&primary_release_date.lte=${year}-12-31`;
   const api = apiTopMovies + range;
   try {
@@ -79,7 +67,11 @@ export async function getTopMovies(
       throw new Error(`Error ${response.status}`);
     }
     const result: getMoviesResponse = await response.json();
-    return result;
+    const movies = result?.results.slice(0, 10);
+    const chartData = movies?.map((movie) => {
+      return { title: movie.title, votes: movie.vote_count };
+    });
+    return chartData;
   } catch (error) {
     console.error(error);
     throw new Error(`Error fetching movies: ${error}`);
