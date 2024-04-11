@@ -24,10 +24,10 @@ export default function MovieCard(props: Movie) {
 
   const ratingBackground =
     formattedRating < 6
-      ? "bg-red-600"
+      ? "bg-red-800"
       : formattedRating > 5 && formattedRating < 7.5
-      ? "bg-orange-400"
-      : "bg-green-600";
+      ? "bg-orange-600"
+      : "bg-green-800";
 
   return (
     <Link href={`/${slug}`} className="flex-[18%] basis-52">

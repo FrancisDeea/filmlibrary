@@ -74,6 +74,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
       </dialog>
 
       <button
+        aria-label="open movie searcher panel"
         id="magnifier-btn"
         className="w-full flex justify-center"
         onClick={() => dialogRef.current?.showModal()}

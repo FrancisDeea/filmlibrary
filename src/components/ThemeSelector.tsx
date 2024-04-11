@@ -36,6 +36,7 @@ export default function ThemeSelector({
 
   return (
     <button
+      aria-label="theme mode button"
       className={`p-1 rounded-full bg-secundary text-text ${customClass}`}
       onClick={handleTheme}
     >

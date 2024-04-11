@@ -6,7 +6,7 @@ import { Suspense } from "react";
 export default function FloatMenu() {
   return (
     <>
-      <nav className="absolute bottom-10 left-0 right-0 w-full max-w-52 h-8 m-auto flex bg-primary rounded-3xl text-white shadow-2xl z-20">
+      <nav className="absolute bottom-10 left-0 right-0 w-full max-w-52 h-8 m-auto flex bg-blue-600 rounded-3xl text-white shadow-2xl z-20">
         <BackButton />
 
         <label

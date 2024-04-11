@@ -5,6 +5,8 @@ Movie library dashboard that allow you to find your favorite movie by category o
 
 Powered by NextJS, TailwindCSS, Node, Socket, SQLite/PostgreSQL and more!
 
+
+
 Developed by [Francisco Javier Bernal Cabra](https://www.linkedin.com/in/francis-bernal-full-stack-developer/)
 
 
@@ -127,7 +129,20 @@ The charts have been componentized to simply pass you the year and the data of t
 
 Although I have used some hooks to refactor code, as most of the operations are done from the server side, they don't make much sense. Because we made special server functions that are used to do fetch operations, [cacheable and automatically optimised by NextJS](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#fetching-data-on-the-server-with-fetch).
 
-  
+### Task 3: Large dataset handling
+In order to handle large amounts of data (over 800k movies) I have implemented a pagination to be able to display 20 results minimising the impact on the load.
+
+As I said about hooks, by using Next's fetch method, the requests will only be sent the first time, caching them for the next time.
+All this is done on the server side, thus using maximum performance and ensuring that the content is SEO friendly.
+
+### Task 4: Performance optimization and server-side rendering
+In Next, all components and pages are [rendered on the server](https://nextjs.org/docs/app/building-your-application/rendering/server-components) by default. 
+
+Following this premise, I have tried to compose as much as possible so that fetches or operations are always performed on the server side.
+
+For example, I've used search params like "state" to fetch categories or custom searches from the url, avoiding using hooks like useState, which force you to operate on the client side.
+
+This way, you can also use the links to track information, or as bookmarks when sharing the page.
 
 [Documentation](https://linktodocumentation)
 

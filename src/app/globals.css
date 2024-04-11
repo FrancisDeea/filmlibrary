@@ -28,25 +28,10 @@ p {
     --text: 220 7% 8%;
     --background: 216 33% 97%;
     --background2: 216 16% 94%
-    --primary: 229 52% 54%;
+    --primary: 229 52% 46%;
     --secondary: 228 75% 75%;
     --accent: 229 98% 61%;
     --border: 200 15% 73%;
-
-    /* --background1: 221deg 86% 92%;
-    --background2: 222deg 81% 96%;
-    --dark: 205 223 255;
-    --medium: 222deg 100% 75%;
-    --text: 0deg 0% 0%;
-    --text2: 0deg 0% 15%;
-    --alert: 358deg 100% 27%;
-    --opposite: 0 0 0;
-    --gradient: linear-gradient(
-      90deg,
-      rgb(216, 226, 251) 0%,
-      rgb(227, 234, 252) 100%
-    );
-    --footer: #6d96cf; */
   }
 
   [class="dark"] {
@@ -57,20 +42,6 @@ p {
     --secondary: 228 75% 25%;
     --accent: 229 98% 39%;
     --border: 0 0% 18%;
-    /* --background1: 225deg 59% 11%;
-    --background2: 225deg 40% 18%;
-    --dark: 2 6 23;
-    --medium: 213deg 30% 32%;
-    --text: 213deg 51% 85%;
-    --text2: 213deg 51% 88%;
-    --alert: 358deg 100% 67%;
-    --opposite: 255 255 255;
-    --gradient: linear-gradient(
-      90deg,
-      hsla(225, 59%, 8%, 1) 0%,
-      hsla(226, 58%, 12%, 1) 100%
-    );
-    --footer: #1d2837; */
   }
 
   body {
