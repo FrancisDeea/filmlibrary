@@ -6,7 +6,10 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import { Session } from "next-auth";
 
-const socketUrl = process.env.NODE_ENV !== 'development' ? 'https://realtime-colaboration-socket.onrender.com' : 'http://localhost:4000'
+const socketUrl =
+  process.env.NODE_ENV !== "development"
+    ? "https://realtime-colaboration-socket.onrender.com"
+    : "http://localhost:4000";
 
 const socket = io(socketUrl, {
   auth: {
