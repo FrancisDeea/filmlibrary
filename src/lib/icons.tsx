@@ -221,6 +221,7 @@ export const SpinnerIcon = ({ style }: { style?: string }) => {
 export const SunIcon = ({ style }: { style?: string }) => {
   return (
     <svg
+      id="sun-icon"
       className={`${style} animate-fade animate-duration-300`}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -242,6 +243,7 @@ export const SunIcon = ({ style }: { style?: string }) => {
 export const MoonIcon = ({ style }: { style?: string }) => {
   return (
     <svg
+      id="moon-icon"
       className={`${style} animate-fade animate-duration-300`}
       xmlns="http://www.w3.org/2000/svg"
       width="24"

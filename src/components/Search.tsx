@@ -73,7 +73,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
         </div>
       </dialog>
 
-      <button className="w-full flex justify-center" onClick={() => dialogRef.current?.showModal()}>
+      <button
+        id="magnifier-btn"
+        className="w-full flex justify-center"
+        onClick={() => dialogRef.current?.showModal()}
+      >
         <MagnifyIcon style="size-6" />
       </button>
     </div>
