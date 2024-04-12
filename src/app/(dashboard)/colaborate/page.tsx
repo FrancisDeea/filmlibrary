@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+import { auth } from "@/auth/auth";
 import RealtimeChat from "@/components/RealtimeChat";
 
 export default async function Page() {

@@ -1,7 +1,7 @@
 "use server";
 
-import { signIn } from "@/auth";
-import { signOut } from "@/auth";
+import { signIn } from "@/auth/auth";
+import { signOut } from "@/auth/auth";
 import { AuthError } from "next-auth";
 
 // ...
