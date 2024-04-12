@@ -54,7 +54,7 @@ export default function MovieCard(props: Movie) {
                 key={genre}
                 className="bg-red-900 px-2 rounded-xl text-sm text-white font-medium"
               >
-                {categoryDictionary[genre]}
+                {categoryDictionary[genre] === 'Science Fiction' ? 'S. Fiction' : categoryDictionary[genre]}
               </span>
             ))}
           </div>
