@@ -145,4 +145,3 @@ For example, I've used search params like "state" to fetch categories or custom 
 This way, you can also use the links to track information, or as bookmarks when sharing the page.
 
 [Documentation](https://linktodocumentation)
-
