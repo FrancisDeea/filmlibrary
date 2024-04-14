@@ -69,7 +69,7 @@ function LoginButton() {
 
   return (
     <button
-      className="w-full text-white bg-accent rounded-lg p-1.5"
+      className="w-full text-white text-center bg-accent rounded-lg p-1.5 flex justify-center"
       aria-disabled={pending}
     >
       {buttonValue}

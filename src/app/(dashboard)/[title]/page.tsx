@@ -23,16 +23,24 @@ export default async function Page({ params }: { params: { title: string } }) {
       : "bg-green-600";
 
   return (
-    <div className="overflow-y-scroll ct-flex-row flex-wrap h-full relative p-4 max-sm:p-0 z-0 bg-gradient-to-t from-60% from-black to-transparent">
-      <div className="flex-[34%] p-8 flex items-center relative overflow-hidden z-10">
+    <div className="overflow-y-auto ct-flex-row flex-wrap min-h-full h-full relative p-4 z-0">
+      <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-background2 from-50% to-transparent z-10 sm:hidden"></div>
+
+      <img
+        src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
+        alt={`backdrop of ${movie.title}`}
+        className="absolute inset-0 w-full h-full max-sm:h-1/2 object-cover brightness-[.25]"
+      />
+
+      <div className="flex-[34%] flex items-center relative overflow-hidden z-10">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={`poster of ${movie.poster_path}`}
-          className="w-full basis-52 max-w-64 max-sm:max-w-48 grow rounded-xl m-auto aspect-[1/1.5] object-cover"
+          className="w-full basis-52 max-w-64 grow rounded-xl m-auto aspect-[1/1.5] object-cover"
         />
       </div>
 
-      <div className="flex-[64%] h-min text-white ct-flex-col z-10 max-sm:pb-28 p-4">
+      <div className="flex-[64%] text-white ct-flex-col z-10 max-sm:pb-28">
         <div
           className={`${ratingBackground} rounded-md px-3 py-1 w-max font-semibold text-lg`}
         >
@@ -42,14 +50,10 @@ export default async function Page({ params }: { params: { title: string } }) {
           {movie.title} ({year})
         </h1>
         <p>Categories: {genres}</p>
-        <p className="text-xl max-w-3xl">{movie.overview}</p>
+        <p className="leading-8 max-sm:leading-8 text-xl max-sm:text-lg max-w-3xl">
+          {movie.overview}
+        </p>
       </div>
-
-      <img
-        src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}
-        alt={`backdrop of ${movie.title}`}
-        className="absolute inset-0 w-full h-full object-cover brightness-[.35]"
-      />
     </div>
   );
 }
