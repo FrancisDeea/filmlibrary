@@ -67,6 +67,13 @@ All these variables are necessary to establish a connection with a database inte
 
 You can learn how to set up your database on vercel and how to get these keys on the [official documentation](https://nextjs.org/learn/dashboard-app/setting-up-your-database)
 
+Once you have set up your database, run the following command to seed the database with the same users you can find on Documentation, Task 1.
+
+```bash
+  npm run seed
+```
+
+
 `NEXT_PUBLIC_SOCKET_URL`
 
 This variable is the public url address of the socket server in charge of receiving and sending collaborative chat messages. Don't worry about this variable in local mode, because it will take the localhost port by default. Just use it if you deploy the socket server.
@@ -112,7 +119,12 @@ Credentials will be securely stored in a PostgreSQL database integrated with Ver
 You can access the application using the following credentials:
 
 ```bash
+// user 1
 email: 'user@nextmail.com'
+password: '123456'
+
+// user 2
+email: 'asafe@asafedigital.com'
 password: '123456'
 ```
 

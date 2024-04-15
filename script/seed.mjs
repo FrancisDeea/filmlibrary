@@ -8,8 +8,8 @@ const users = [
     password: '123456',
   },
   {
-    name: 'Francis',
-    email: 'francis@nextmail.com',
+    name: 'User',
+    email: 'user@nextmail.com',
     password: '123456',
   }
 ];
