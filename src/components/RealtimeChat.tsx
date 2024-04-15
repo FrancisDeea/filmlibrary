@@ -42,15 +42,20 @@ export default function RealtimeChat({ session }: { session: Session | null }) {
   return (
     <>
       <ul
-        className="w-full h-full max-sm:!h-[85%] overflow-y-scroll ct-flex-col justify-start pb-28 max-sm:pb-14 scroll-smooth"
+        className="w-full h-full max-sm:!h-[85%] overflow-y-scroll ct-flex-col justify-start pb-28 pr-4 max-sm:pb-14 scroll-smooth"
         id="messages"
         ref={listRef}
       >
         {messages.map((item) => {
+          const usernameStyle =
+            session?.user?.name === item.username
+              ? "bg-green-800 self-end"
+              : "bg-gray-800 self-start";
+
           return (
             <li
               key={item.id}
-              className="[&:nth-child(odd)]:bg-secondary [&:nth-child(even)]:bg-green-300 [&:nth-child(even)]:text-black px-4 py-2 rounded-2xl "
+              className={`${usernameStyle} px-4 py-2 rounded-2xl text-white`}
             >
               <span className="text-xs font-medium">
                 {item.username} typed:
